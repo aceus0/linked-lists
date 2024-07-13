@@ -48,7 +48,49 @@ function LinkedList () {
     if(current.next == null) {
       return current;
     } else {
-      end(current.next);
+      return end(current.next);
+    }
+  }
+
+  const at = (index, current = head.next, counter = 0) => {
+    if (current == null) {
+      return null;
+    }
+    if (counter == index) {
+      return current;
+    } else {
+      return at(index, current.next, counter + 1);
+    }
+  }
+
+  const pop = (current = head.next) => {
+    if(current.next.next == null){
+      current.next = null;
+      console.log(`popped`);
+      return;
+    } else {
+      pop(current.next);
+    }
+  }
+
+  const contains = (value, current = head) => {
+    if (current.data == value) {
+      return true;
+    } else if (current.next == null){
+      return false;
+    } else {
+      return contains(value, current.next);
+    }
+  }
+
+  const find = (value, current = head.next, counter = 0) => {
+    if (current == null) {
+      return null;
+    }
+    if (current.data == value) {
+      return counter;
+    } else {
+      return find(value, current.next, counter + 1);
     }
   }
 
@@ -63,12 +105,10 @@ function LinkedList () {
     }
   }
 
-  append(10, head);
-  append(20, head);
-
-  start()
 
   prepend(11, head);
+  append(10, head);
+  append(20, head);
   append(30, head);
   append(40, head);
   append(50, head);
@@ -76,10 +116,16 @@ function LinkedList () {
 
 
 
+  // readList();
+  // size();
+  // console.log(start());
+  // console.log(end());
+  // console.log(at(2));
+  // pop();
   readList();
-  size();
-  console.log(start());
-  console.log(end());
+
+  console.log(contains(5));
+  console.log(find(30));
 
 }
 
