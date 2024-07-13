@@ -1,0 +1,27 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "template for webpack projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --open --config webpack.dev.js",
+    "deploy": "npm run clean && npm run build && git add dist && git commit -m 'deploy new version' && git subtree push --prefix dist origin gh-pages",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "author": "Justin Hughes",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.4.0",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.4.0",
+    "eslint-webpack-plugin": "^4.2.0",
+    "globals": "^15.4.0",
+    "html-webpack-plugin": "^5.6.0",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4",
+    "webpack-merge": "^5.10.0"
+  }
+}
